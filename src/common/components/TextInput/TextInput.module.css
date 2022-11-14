@@ -1,0 +1,17 @@
+.input {
+  padding: 6px 12px;
+
+  font-size: var(--basic-fz);
+  line-height: var(--basiz-lh);
+
+  background-color: transparent;
+  border: 1px solid var(--color-grey);
+  border-radius: 1px;
+
+  transition: border-color 200ms;
+}
+
+.input:focus {
+  border-color: var(--color-brand-red);
+  outline: none;
+}

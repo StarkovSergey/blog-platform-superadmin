@@ -1,0 +1,6 @@
+.section-title {
+  margin: 0;
+
+  font-size: var(--section-title-fz);
+  line-height: var(--section-title-lh);
+}

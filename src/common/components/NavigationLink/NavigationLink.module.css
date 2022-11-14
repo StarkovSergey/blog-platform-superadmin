@@ -1,0 +1,38 @@
+.link {
+  display: inline-flex;
+  gap: 12px;
+  align-items: center;
+
+  padding: 5px;
+
+  font-size: var(--basic-fz);
+  line-height: var(--basiz-lh);
+  color: var(--color-black);
+
+  transition: 300ms opacity;
+}
+
+.link--active {
+  color: var(--color-brand-red);
+}
+
+.link--active::after {
+  content: '';
+
+  position: absolute;
+  right: 0;
+
+  width: 2px;
+  height: 36px;
+
+  background-color: var(--color-brand-red);
+  border-radius: 2px 0 0 2px;
+}
+
+.svg-icon {
+  fill: var(--color-black);
+}
+
+.link--active .svg-icon {
+  fill: var(--color-brand-red);
+}

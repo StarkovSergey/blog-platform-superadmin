@@ -1,0 +1,39 @@
+.box {
+  display: flex;
+  gap: 12px;
+
+  padding: 11px 0;
+}
+
+.image {
+  position: relative;
+
+  overflow: hidden;
+
+  width: 156px;
+  height: 156px;
+
+  border-radius: 50%;
+}
+
+.image img {
+  position: absolute;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+.title {
+  margin: 0;
+  margin-bottom: 50px;
+
+  font-size: var(--title-fz);
+  line-height: var(--title-lh);
+}
+
+.description {
+  font-size: var(--basic-fz);
+  line-height: var(--basiz-lh);
+}

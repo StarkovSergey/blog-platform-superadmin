@@ -1,0 +1,6 @@
+.title {
+  margin: 0;
+
+  font-size: var(--item-title-fz);
+  line-height: var(--item-title-lh);
+}

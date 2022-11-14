@@ -1,0 +1,7 @@
+.back-link {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+
+  padding: 5px;
+}

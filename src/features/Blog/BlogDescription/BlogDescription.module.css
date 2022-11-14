@@ -1,0 +1,47 @@
+.image {
+  position: relative;
+
+  overflow: hidden;
+  flex-shrink: 0;
+
+  width: 144px;
+  height: 144px;
+
+  border-radius: 50%;
+}
+
+.image img {
+  position: absolute;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+.description {
+  display: flex;
+  gap: 16px;
+}
+
+.title {
+  margin-bottom: 32px;
+}
+
+.date {
+  margin: 0;
+  margin-bottom: 15px;
+
+  font-size: var(--date-fz);
+  line-height: var(--date-lh);
+  color: var(--color-grey-font);
+}
+
+.date time {
+  color: var(--color-black);
+}
+
+.text {
+  margin: 0;
+  margin-bottom: 5px;
+}
