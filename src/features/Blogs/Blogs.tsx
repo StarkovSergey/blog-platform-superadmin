@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react'
 
+import { useNavigate } from 'react-router-dom'
+
 import { Breadcrumbs } from '../../common/components/Breadcrumbs/Breadcrumbs'
 import { Button } from '../../common/components/Button/Button'
 import { Loader } from '../../common/components/Loader/Loader'
@@ -17,10 +19,15 @@ export const Blogs = () => {
   const dispatch = useAppDispatch()
   const status = useAppSelector(selectBlogsStatus)
   const blogs = useAppSelector(selectBlogs)
+  const navigate = useNavigate()
 
   useEffect(() => {
     dispatch(fetchBlogs())
   }, [])
+
+  const addBlogButtonHandler = () => {
+    navigate(Paths.NewBlog)
+  }
 
   const breadcrumbs = [
     {
@@ -35,14 +42,16 @@ export const Blogs = () => {
       {status === 'loading' ? (
         <Loader />
       ) : (
-        <>
-          <Button>Add blog</Button>
+        <div className={style['content-box']}>
+          <Button onClick={addBlogButtonHandler} className={style['add-button']}>
+            Add blog
+          </Button>
           <ul className={style.list}>
             {blogs.map(blog => {
               return <BlogItem key={blog.id} blog={blog} />
             })}
           </ul>
-        </>
+        </div>
       )}
     </MainSection>
   )

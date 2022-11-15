@@ -1,11 +1,21 @@
-import React, { ReactNode } from 'react'
+import React, { ButtonHTMLAttributes, DetailedHTMLProps, ReactNode } from 'react'
 
 import style from './Button.module.css'
 
-type PropsType = {
+type DefaultButtonPropsType = DetailedHTMLProps<
+  ButtonHTMLAttributes<HTMLButtonElement>,
+  HTMLButtonElement
+>
+
+type PropsType = DefaultButtonPropsType & {
   children: ReactNode
+  className: string
 }
 
-export const Button = ({ children }: PropsType) => {
-  return <button className={style.button}>{children}</button>
+export const Button = ({ children, className, ...restProps }: PropsType) => {
+  return (
+    <button className={`${style.button} ${className}`} {...restProps}>
+      {children}
+    </button>
+  )
 }
