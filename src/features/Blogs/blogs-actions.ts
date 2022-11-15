@@ -14,3 +14,18 @@ export const fetchBlogs = createAsyncThunk('blogs/fetchBlogs', async (_, { rejec
     }
   }
 })
+
+export const addBlog = createAsyncThunk(
+  'blogs/addBlog',
+  async (param: { name: string; youtubeUrl: string }, { rejectWithValue }) => {
+    try {
+      const response = await blogsAPI.addBlog(param)
+
+      return { blog: response.data }
+    } catch (e) {
+      if (axios.isAxiosError(e)) {
+        return rejectWithValue(e.message)
+      }
+    }
+  }
+)

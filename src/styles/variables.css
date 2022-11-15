@@ -1,12 +1,13 @@
 :root {
   --color-black: #1a1718;
+  --color-neutral-light: #fcfbfb;
 
   --color-light-bg-gray: #fcfbfb;
   --color-bg-gray: #faf7f8;
   --color-grey: #dedbdc;
   --color-grey-font: #797476;
 
-  --color-brand-red: #e15b64;
+  --color-brand-red: #f8346b;
   --color-brand-orange: #f8b26a;
 
   --date-fz: 12px;
@@ -14,6 +15,9 @@
 
   --basic-fz: 14px;
   --basiz-lh: 24px;
+
+  --button-fz: 14px;
+  --button-lh: 20px;
 
   --item-title-fz: 16px;
   --item-title-lh: 24px;

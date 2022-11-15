@@ -9,6 +9,9 @@ export const blogsAPI = {
       },
     })
   },
+  addBlog(params: { name: string; youtubeUrl: string }) {
+    return instance.post<Blog>('blogs', params)
+  },
 }
 
 export type GetBlogsResponse = {

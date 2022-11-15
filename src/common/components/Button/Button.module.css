@@ -1,0 +1,13 @@
+.button {
+  min-width: 124px;
+  padding: 8px 29px;
+
+  font-size: var(--button-fz);
+  line-height: var(--basiz-lh);
+  color: var(--color-neutral-light);
+  text-align: center;
+
+  background: var(--color-brand-red);
+  border-radius: 2px;
+  box-shadow: 0px 4px 18px rgba(248, 52, 107, 0.35), inset 0px 1px 0px rgba(255, 255, 255, 0.3);
+}

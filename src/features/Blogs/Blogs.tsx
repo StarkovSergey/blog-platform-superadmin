@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 
 import { Breadcrumbs } from '../../common/components/Breadcrumbs/Breadcrumbs'
+import { Button } from '../../common/components/Button/Button'
 import { Loader } from '../../common/components/Loader/Loader'
 import { useAppDispatch } from '../../common/hooks/useAppDispatch'
 import { useAppSelector } from '../../common/hooks/useAppSelector'
@@ -8,7 +9,7 @@ import { Paths } from '../../common/routes'
 import { MainSection } from '../../layout/MainSection/MainSection'
 
 import { BlogItem } from './BlogItem/BlogItem'
-import { fetchBlogs } from './blogs-actions'
+import { addBlog, fetchBlogs } from './blogs-actions'
 import style from './Blogs.module.css'
 import { selectBlogs, selectBlogsStatus } from './selectors'
 
@@ -34,11 +35,14 @@ export const Blogs = () => {
       {status === 'loading' ? (
         <Loader />
       ) : (
-        <ul className={style.list}>
-          {blogs.map(blog => {
-            return <BlogItem key={blog.id} blog={blog} />
-          })}
-        </ul>
+        <>
+          <Button>Add blog</Button>
+          <ul className={style.list}>
+            {blogs.map(blog => {
+              return <BlogItem key={blog.id} blog={blog} />
+            })}
+          </ul>
+        </>
       )}
     </MainSection>
   )
