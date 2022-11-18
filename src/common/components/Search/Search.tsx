@@ -6,7 +6,7 @@ import React, {
   InputHTMLAttributes,
 } from 'react'
 
-import style from './TextInput.module.css'
+import style from './Search.module.css'
 
 type DefaultInputPropsType = DetailedHTMLProps<
   InputHTMLAttributes<HTMLInputElement>,
@@ -19,7 +19,7 @@ type PropsType = DefaultInputPropsType & {
   onEnter?: () => void
 }
 
-export const TextInput = forwardRef<HTMLInputElement, PropsType>(
+export const Search = forwardRef<HTMLInputElement, PropsType>(
   ({ label, onChangeText, onEnter, onKeyDown, className, ...props }, ref) => {
     const onChangeInputHandler = (e: ChangeEvent<HTMLInputElement>) => {
       onChangeText && onChangeText(e.currentTarget.value)

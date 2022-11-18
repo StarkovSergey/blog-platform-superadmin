@@ -9,7 +9,7 @@ type DefaultButtonPropsType = DetailedHTMLProps<
 
 type PropsType = DefaultButtonPropsType & {
   children: ReactNode
-  className: string
+  className?: string
 }
 
 export const Button = ({ children, className, ...restProps }: PropsType) => {
