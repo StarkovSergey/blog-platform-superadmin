@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 
 import { Blog, RequestStatus } from '../../common/types'
 
-import { addBlog, fetchBlogs } from './blogs-actions'
+import { addBlog, deleteBlog, fetchBlogs } from './blogs-actions'
 
 const slice = createSlice({
   name: 'blogs',
@@ -18,6 +18,9 @@ const slice = createSlice({
     })
     builder.addCase(addBlog.fulfilled, (state, action) => {
       state.blogs.unshift(action.payload!.blog)
+    })
+    builder.addCase(deleteBlog.fulfilled, (state, action) => {
+      state.blogs = state.blogs.filter(blog => blog.id !== action.payload)
     })
     builder.addMatcher(
       action => action.type.endsWith('/pending'),

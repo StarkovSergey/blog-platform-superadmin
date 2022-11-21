@@ -1,6 +1,7 @@
 export interface Blog {
   name: string
-  youtubeUrl: string
+  description: string
+  websiteUrl: string
   createdAt: string
   id: string
 }

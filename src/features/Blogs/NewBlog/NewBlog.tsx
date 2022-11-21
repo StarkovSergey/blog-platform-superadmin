@@ -21,6 +21,7 @@ export const NewBlog = () => {
   const [formState, setFormState] = useState({
     name: '',
     description: '',
+    link: '',
   })
 
   const onChangeHandler = (e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>) => {
@@ -38,12 +39,16 @@ export const NewBlog = () => {
       dispatch(
         addBlog({
           name: formState.name,
-          youtubeUrl: formState.description,
+          websiteUrl: formState.link,
+          description: formState.description,
         })
       )
         .unwrap()
         .then(() => {
           navigate(Paths.Blogs)
+        })
+        .catch(e => {
+          alert(e)
         })
     }
   }
@@ -70,6 +75,13 @@ export const NewBlog = () => {
           className={style.input}
           name="name"
           value={formState.name}
+          onChange={onChangeHandler}
+        />
+        <InputText
+          label="Link"
+          className={style.input}
+          name="link"
+          value={formState.link}
           onChange={onChangeHandler}
         />
         <Textarea

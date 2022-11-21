@@ -1,0 +1,19 @@
+.content {
+  padding-top: 30px;
+  padding-right: 24px;
+  padding-bottom: 36px;
+  padding-left: 24px;
+}
+
+.message {
+  margin: 0;
+  margin-bottom: 42px;
+
+  font-size: var(--item-title-fz);
+  line-height: var(--item-title-lh);
+}
+
+.button-box {
+  display: flex;
+  justify-content: space-between;
+}

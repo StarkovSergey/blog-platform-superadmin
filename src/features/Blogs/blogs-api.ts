@@ -9,8 +9,11 @@ export const blogsAPI = {
       },
     })
   },
-  addBlog(params: { name: string; youtubeUrl: string }) {
+  addBlog(params: { name: string; websiteUrl: string; description: string }) {
     return instance.post<Blog>('blogs', params)
+  },
+  deleteBlog(id: string) {
+    return instance.delete(`blogs/${id}`)
   },
 }
 

@@ -10,11 +10,12 @@ type DefaultButtonPropsType = DetailedHTMLProps<
 type PropsType = DefaultButtonPropsType & {
   children: ReactNode
   className?: string
+  variant?: 'outlined' | ''
 }
 
-export const Button = ({ children, className, ...restProps }: PropsType) => {
+export const Button = ({ children, className, variant = '', ...restProps }: PropsType) => {
   return (
-    <button className={`${style.button} ${className}`} {...restProps}>
+    <button className={`${style.button} ${className || ''} ${style[variant]}`} {...restProps}>
       {children}
     </button>
   )

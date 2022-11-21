@@ -23,9 +23,7 @@ export const BlogDescription = ({ blog }: PropsType) => {
           <time dateTime={blog.createdAt}>{getDate(blog.createdAt)}</time>
         </p>
         <p className={style.text}>
-          <b>{blog.youtubeUrl}</b> Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-          Aliquam, amet aut beatae dicta, ea et excepturi explicabo iusto labore libero magni
-          obcaecati perspiciatis possimus quidem repellat, sint totam vero vitae!
+          <b>{blog.description}</b>
         </p>
         <button>Show more</button>
       </div>

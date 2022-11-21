@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { useNavigate } from 'react-router-dom'
 
 import { Breadcrumbs } from '../../common/components/Breadcrumbs/Breadcrumbs'
 import { Button } from '../../common/components/Button/Button'
 import { Loader } from '../../common/components/Loader/Loader'
+import { BasicModal } from '../../common/components/modals/BasicModal'
 import { useAppDispatch } from '../../common/hooks/useAppDispatch'
 import { useAppSelector } from '../../common/hooks/useAppSelector'
 import { Paths } from '../../common/routes'
