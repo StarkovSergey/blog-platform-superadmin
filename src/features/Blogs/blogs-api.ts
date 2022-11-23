@@ -9,13 +9,18 @@ export const blogsAPI = {
       },
     })
   },
-  addBlog(params: { name: string; websiteUrl: string; description: string }) {
+  addBlog(params: BlogRequestParam) {
     return instance.post<Blog>('blogs', params)
   },
   deleteBlog(id: string) {
     return instance.delete(`blogs/${id}`)
   },
+  updateBlog(params: { requestParam: BlogRequestParam; id: string }) {
+    return instance.put(`blogs/${params.id}`, params.requestParam)
+  },
 }
+
+export type BlogRequestParam = { name: string; websiteUrl: string; description: string }
 
 export type GetBlogsResponse = {
   pageCount: number

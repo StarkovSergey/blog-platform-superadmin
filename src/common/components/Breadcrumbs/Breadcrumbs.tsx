@@ -5,8 +5,10 @@ import { Link } from 'react-router-dom'
 import style from './Breadcrumbs.module.css'
 
 type PropsType = {
-  breadcrumbs: Array<{ title: string; link?: string }>
+  breadcrumbs: Breadcrumb[]
 }
+
+export type Breadcrumb = { title: string; link?: string }
 
 export const Breadcrumbs = ({ breadcrumbs, ...props }: PropsType) => {
   return (

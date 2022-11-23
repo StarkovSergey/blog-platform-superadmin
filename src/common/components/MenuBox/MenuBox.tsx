@@ -9,10 +9,10 @@ import style from './MenuBox.module.css'
 type PropsType = {
   className: string
   deleteCallback: Function
-  editCallback?: Function
+  editCallback: Function
 }
 
-export const MenuBox = ({ className, deleteCallback }: PropsType) => {
+export const MenuBox = ({ className, deleteCallback, editCallback }: PropsType) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const menuButtonHandler = () => {
@@ -21,6 +21,11 @@ export const MenuBox = ({ className, deleteCallback }: PropsType) => {
 
   const deleteButtonClickHandler = () => {
     deleteCallback()
+    setIsMenuOpen(false)
+  }
+
+  const editButtonClickHandler = () => {
+    editCallback()
     setIsMenuOpen(false)
   }
 
@@ -40,7 +45,7 @@ export const MenuBox = ({ className, deleteCallback }: PropsType) => {
           <button onClick={deleteButtonClickHandler} className={style.button}>
             <DeleteIcon /> Delete
           </button>
-          <button className={style.button}>
+          <button onClick={editButtonClickHandler} className={style.button}>
             <EditIcon />
             Edit
           </button>

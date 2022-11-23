@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 
 import { Blog, RequestStatus } from '../../common/types'
 
-import { addBlog, deleteBlog, fetchBlogs } from './blogs-actions'
+import { addBlog, deleteBlog, fetchBlogs, updateBlog } from './blogs-actions'
 
 const slice = createSlice({
   name: 'blogs',

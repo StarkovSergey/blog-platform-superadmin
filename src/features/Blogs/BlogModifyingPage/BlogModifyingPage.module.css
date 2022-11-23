@@ -1,0 +1,22 @@
+.backlink {
+  margin-top: 35px;
+  margin-bottom: 12px;
+}
+
+.image {
+  margin-bottom: 24px;
+}
+
+.input {
+  margin-bottom: 24px;
+}
+
+.textarea {
+  margin-bottom: 24px;
+}
+
+.button {
+  display: block;
+
+  margin-left: auto;
+}

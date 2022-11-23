@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 import dragonPlaceholder from '../../../assets/images/placeholders/dragon.jpg'
 import { MenuBox } from '../../../common/components/MenuBox/MenuBox'
@@ -15,9 +15,9 @@ import style from './BlogItem.module.css'
 type PropsType = {
   blog: Blog
 }
-
 export const BlogItem = ({ blog }: PropsType) => {
   const dispatch = useAppDispatch()
+  const navigate = useNavigate()
 
   const deleteButtonHandler = () => {
     setIsDeleteModalOpen(true)
@@ -29,10 +29,18 @@ export const BlogItem = ({ blog }: PropsType) => {
 
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false)
 
+  const editBlogHandler = () => {
+    navigate(Paths.EditBlog, { state: blog })
+  }
+
   return (
     <>
       <li className={style.box}>
-        <MenuBox deleteCallback={deleteButtonHandler} className={style['menu-box']} />
+        <MenuBox
+          deleteCallback={deleteButtonHandler}
+          editCallback={editBlogHandler}
+          className={style['menu-box']}
+        />
         <Link to={`${Paths.Blogs}/${blog.id}`}>
           <div className={style.image}>
             <img src={dragonPlaceholder} alt="blog image" />
