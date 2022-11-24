@@ -5,8 +5,11 @@ export const postsAPI = {
   getPosts() {
     return instance.get<GetPostsResponse>('posts')
   },
-  addPost(param: addPostParam) {
-    return instance.post<Post>('posts', param)
+  addPost(inputModel: PostRequestParam) {
+    return instance.post<Post>('posts', inputModel)
+  },
+  editPost({ inputModel, id }: { inputModel: PostRequestParam; id: string }) {
+    return instance.put(`posts/${id}`, inputModel)
   },
 }
 
@@ -19,7 +22,7 @@ type GetPostsResponse = {
   items: Post[]
 }
 
-export type addPostParam = {
+export type PostRequestParam = {
   title: string
   shortDescription: string
   content: string

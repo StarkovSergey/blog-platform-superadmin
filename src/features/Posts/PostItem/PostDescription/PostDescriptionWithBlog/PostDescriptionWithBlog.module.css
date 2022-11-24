@@ -1,4 +1,6 @@
 .box {
+  position: relative;
+
   display: flex;
   gap: 12px;
   align-items: center;
@@ -37,4 +39,10 @@
 
 .date {
   color: var(--color-grey-font);
+}
+
+.menu-box {
+  position: absolute;
+  top: 0;
+  right: 0;
 }

@@ -16,6 +16,7 @@
 
 .menu {
   position: relative;
+  z-index: 1;
   bottom: -27px;
   left: -129px;
 

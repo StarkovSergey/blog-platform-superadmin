@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 
 import { Post, RequestStatus } from '../../common/types'
 
-import { addPost, fetchPosts } from './posts-actions'
+import { addPost, editPost, fetchPosts } from './posts-actions'
 
 const slice = createSlice({
   name: 'posts',

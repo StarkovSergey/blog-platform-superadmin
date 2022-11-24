@@ -7,12 +7,11 @@ import { useAppDispatch } from '../../common/hooks/useAppDispatch'
 import { useAppSelector } from '../../common/hooks/useAppSelector'
 import { Paths } from '../../common/routes'
 import { MainSection } from '../../layout/MainSection/MainSection'
-import { BlogItem } from '../Blogs/BlogItem/BlogItem'
 
 import { PostItem } from './PostItem/PostItem'
 import { PostModal } from './PostModal/PostModal'
 import { addPost, fetchPosts } from './posts-actions'
-import { addPostParam } from './posts-api'
+import { PostRequestParam } from './posts-api'
 import style from './Posts.module.css'
 import { selectPosts, selectPostsStatus } from './selectors'
 
@@ -37,7 +36,7 @@ export const Posts = () => {
     },
   ]
 
-  const addPostHandler = (param: addPostParam) => {
+  const addPostHandler = (param: PostRequestParam) => {
     dispatch(addPost(param))
       .unwrap()
       .then(() => {

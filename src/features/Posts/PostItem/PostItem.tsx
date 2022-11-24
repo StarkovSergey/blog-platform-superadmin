@@ -21,12 +21,7 @@ export const PostItem = ({ post }: PropsType) => {
           <img src={dragon} alt="post cover" />
         </div>
       </Link>
-      <PostDescriptionWithBlog
-        title={post.title}
-        description={post.shortDescription}
-        date={post.createdAt}
-        id={post.id}
-      />
+      <PostDescriptionWithBlog post={post} />
     </li>
   )
 }

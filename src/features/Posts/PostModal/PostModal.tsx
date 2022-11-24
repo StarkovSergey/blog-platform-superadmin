@@ -8,9 +8,10 @@ import { Select, SelectOption } from '../../../common/components/Select/Select'
 import { Textarea } from '../../../common/components/Textarea/Textarea'
 import { useAppDispatch } from '../../../common/hooks/useAppDispatch'
 import { useAppSelector } from '../../../common/hooks/useAppSelector'
+import { Post } from '../../../common/types'
 import { fetchBlogs } from '../../Blogs'
 import { selectBlogs } from '../../Blogs/selectors'
-import { addPostParam } from '../posts-api'
+import { PostRequestParam } from '../posts-api'
 
 import style from './PostModal.module.css'
 
@@ -18,11 +19,14 @@ type PropsType = {
   title: string
   isOpen: boolean
   onClose: Function
-  onSubmit: (param: addPostParam) => void
+  onSubmit: (param: PostRequestParam) => void
+  isEdit?: boolean
+  post?: Post
 }
 
-export const PostModal = ({ title, isOpen, onClose, onSubmit }: PropsType) => {
+export const PostModal = ({ title, isOpen, onClose, onSubmit, isEdit, post }: PropsType) => {
   const dispatch = useAppDispatch()
+
   const blogs = useAppSelector(selectBlogs)
   const selectOptions = blogs.map(blog => ({
     label: blog.name,
@@ -37,6 +41,18 @@ export const PostModal = ({ title, isOpen, onClose, onSubmit }: PropsType) => {
     content: '',
     id: '',
   })
+
+  // for actual state initial form inputs (after request)
+  useEffect(() => {
+    if (isEdit) {
+      setFormState({
+        name: post!.title,
+        description: post!.shortDescription,
+        content: post!.content,
+        id: '',
+      })
+    }
+  }, [post])
 
   const onChangeHandler = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormState({
@@ -58,7 +74,6 @@ export const PostModal = ({ title, isOpen, onClose, onSubmit }: PropsType) => {
       dispatch(fetchBlogs())
     }
   }, [blogs])
-
   const onSubmitHandler = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     onSubmit({
@@ -90,12 +105,14 @@ export const PostModal = ({ title, isOpen, onClose, onSubmit }: PropsType) => {
             onChange={onChangeHandler}
             name="description"
           />
-          <Select
-            className={style.select}
-            options={selectOptions}
-            value={value}
-            onChange={selectHandler}
-          />
+          {isEdit || (
+            <Select
+              className={style.select}
+              options={selectOptions}
+              value={value}
+              onChange={selectHandler}
+            />
+          )}
 
           <Textarea
             label="Content"
