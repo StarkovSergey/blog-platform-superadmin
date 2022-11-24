@@ -16,6 +16,8 @@ type PropsType = {
   blog: Blog
 }
 export const BlogItem = ({ blog }: PropsType) => {
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false)
+
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
 
@@ -26,8 +28,6 @@ export const BlogItem = ({ blog }: PropsType) => {
   const deleteBlogHandler = () => {
     dispatch(deleteBlog(blog.id))
   }
-
-  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false)
 
   const editBlogHandler = () => {
     navigate(Paths.EditBlog, { state: blog })

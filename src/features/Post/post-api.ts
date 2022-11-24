@@ -1,5 +1,5 @@
 import { instance } from '../../common/api-instances/basic-instance'
-import { Post } from '../../common/types/posts'
+import { Post } from '../../common/types'
 
 export const postAPI = {
   fetchPost(id: string) {

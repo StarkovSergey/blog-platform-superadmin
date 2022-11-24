@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 
 import { Post, RequestStatus } from '../../common/types'
 
-import { fetchPosts } from './posts-actions'
+import { addPost, fetchPosts } from './posts-actions'
 
 const slice = createSlice({
   name: 'posts',
@@ -15,6 +15,9 @@ const slice = createSlice({
   extraReducers: builder => {
     builder.addCase(fetchPosts.fulfilled, (state, action) => {
       state.posts = action.payload!.posts
+    })
+    builder.addCase(addPost.fulfilled, (state, action) => {
+      state.posts.unshift(action.payload!.post)
     })
     builder.addMatcher(
       action => action.type.endsWith('/pending'),
