@@ -2,7 +2,7 @@ import React from 'react'
 
 import { useLocation } from 'react-router-dom'
 
-import { Breadcrumb } from '../../../common/components/Breadcrumbs/Breadcrumbs'
+import { Breadcrumb } from '../../../common/components'
 import { Paths } from '../../../common/routes'
 import { BlogModifyingPage } from '../BlogModifyingPage/BlogModifyingPage'
 import { updateBlog } from '../blogs-actions'

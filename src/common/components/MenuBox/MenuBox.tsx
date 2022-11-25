@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react'
 
+import { useKeyDown } from '../../hooks/useKeyDown'
 import { useOnClickOutside } from '../../hooks/useOnClickOutside'
 
 import { ReactComponent as DeleteIcon } from './../../../assets/icons/delete-icon.svg'

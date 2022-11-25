@@ -1,5 +1,7 @@
 import React, { ReactNode } from 'react'
 
+import { useKeyDown } from '../../hooks/useKeyDown'
+
 import style from './BasicModal.module.css'
 
 type PropsType = {
@@ -10,6 +12,8 @@ type PropsType = {
 }
 
 export const BasicModal = ({ title, children, isOpen, onClose }: PropsType) => {
+  useKeyDown(onClose, 'Escape')
+
   if (!isOpen) {
     return null
   }

@@ -2,12 +2,15 @@ import React, { ChangeEvent, FormEvent, useState } from 'react'
 
 import { useNavigate } from 'react-router-dom'
 
-import { BackLink } from '../../../common/components/BackLink/BackLink'
-import { Breadcrumb, Breadcrumbs } from '../../../common/components/Breadcrumbs/Breadcrumbs'
-import { Button } from '../../../common/components/Button/Button'
-import { InputText } from '../../../common/components/InputText/InputText'
-import { Textarea } from '../../../common/components/Textarea/Textarea'
-import { useAppDispatch } from '../../../common/hooks/useAppDispatch'
+import {
+  BackLink,
+  Breadcrumb,
+  Breadcrumbs,
+  Button,
+  InputText,
+  Textarea,
+} from '../../../common/components'
+import { useAppDispatch } from '../../../common/hooks'
 import { Paths } from '../../../common/routes'
 import { Blog } from '../../../common/types'
 import { MainSection } from '../../../layout/MainSection/MainSection'

@@ -54,9 +54,9 @@ export const BlogItem = ({ blog }: PropsType) => {
         </div>
       </li>
       <ConfirmModal
-        title="Delete a post"
+        title="Delete a blog"
         isOpen={isDeleteModalOpen}
-        message="Are you sure you want to delete this post?"
+        message="Are you sure you want to delete this blog?"
         onClose={() => setIsDeleteModalOpen(false)}
         callback={deleteBlogHandler}
       />

@@ -1,5 +1,6 @@
-import React, { ReactNode } from 'react'
+import React from 'react'
 
+import { useKeyDown } from '../../../hooks/useKeyDown'
 import { Button } from '../../Button/Button'
 import { BasicModal } from '../BasicModal'
 
@@ -15,8 +16,12 @@ type PropsType = {
 
 export const ConfirmModal = ({ title, isOpen, onClose, message, callback }: PropsType) => {
   const confirmButtonHandler = () => {
-    callback()
+    if (isOpen) {
+      callback()
+    }
   }
+
+  useKeyDown(confirmButtonHandler, 'Enter', [isOpen])
 
   return (
     <BasicModal title={title} isOpen={isOpen} onClose={onClose}>

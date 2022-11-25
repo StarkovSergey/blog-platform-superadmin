@@ -1,12 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 
 import { useNavigate } from 'react-router-dom'
 
-import { Breadcrumbs } from '../../common/components/Breadcrumbs/Breadcrumbs'
-import { Button } from '../../common/components/Button/Button'
-import { Loader } from '../../common/components/Loader/Loader'
-import { useAppDispatch } from '../../common/hooks/useAppDispatch'
-import { useAppSelector } from '../../common/hooks/useAppSelector'
+import { Breadcrumbs, Button, Loader } from '../../common/components'
+import { useAppDispatch, useAppSelector } from '../../common/hooks'
 import { Paths } from '../../common/routes'
 import { MainSection } from '../../layout/MainSection/MainSection'
 

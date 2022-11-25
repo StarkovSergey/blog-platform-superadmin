@@ -26,7 +26,6 @@ export const PostDescriptionWithBlog = ({ post }: PropsType) => {
   const [isShowDeleteModal, setIsShowDeleteModal] = useState(false)
 
   const editPostHandler = (param: Omit<PostRequestParam, 'blogId'>) => {
-    console.log(param, post.blogId, post.id)
     dispatch(
       editPost({
         inputModel: {
