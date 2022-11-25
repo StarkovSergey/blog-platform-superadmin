@@ -50,3 +50,18 @@ export const editPost = createAsyncThunk(
     }
   }
 )
+
+export const deletePost = createAsyncThunk(
+  'posts/deletePost',
+  async (id: string, { rejectWithValue }) => {
+    try {
+      await postsAPI.deletePost(id)
+
+      return id
+    } catch (e) {
+      if (axios.isAxiosError(e)) {
+        return rejectWithValue(e.message)
+      }
+    }
+  }
+)

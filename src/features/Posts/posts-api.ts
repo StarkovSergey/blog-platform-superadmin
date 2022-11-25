@@ -11,6 +11,9 @@ export const postsAPI = {
   editPost({ inputModel, id }: { inputModel: PostRequestParam; id: string }) {
     return instance.put(`posts/${id}`, inputModel)
   },
+  deletePost(id: string) {
+    return instance.delete(`posts/${id}`)
+  },
 }
 
 // types

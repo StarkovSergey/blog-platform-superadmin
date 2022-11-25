@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 
 import { Post, RequestStatus } from '../../common/types'
 
-import { addPost, editPost, fetchPosts } from './posts-actions'
+import { addPost, deletePost, fetchPosts } from './posts-actions'
 
 const slice = createSlice({
   name: 'posts',
@@ -18,6 +18,9 @@ const slice = createSlice({
     })
     builder.addCase(addPost.fulfilled, (state, action) => {
       state.posts.unshift(action.payload!.post)
+    })
+    builder.addCase(deletePost.fulfilled, (state, action) => {
+      state.posts = state.posts.filter(post => post.id !== action.payload)
     })
     builder.addMatcher(
       action => action.type.endsWith('/pending'),

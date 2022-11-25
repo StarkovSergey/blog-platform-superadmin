@@ -4,12 +4,13 @@ import { Link } from 'react-router-dom'
 
 import castleImage from '../../../../../assets/images/placeholders/castle.svg'
 import { MenuBox } from '../../../../../common/components/MenuBox/MenuBox'
+import { ConfirmModal } from '../../../../../common/components/modals/ConfirmModal/ConfirmModal'
 import { useAppDispatch } from '../../../../../common/hooks/useAppDispatch'
 import { Paths } from '../../../../../common/routes'
 import { Post } from '../../../../../common/types'
 import { getDate } from '../../../../../common/utils'
 import { PostModal } from '../../../PostModal/PostModal'
-import { editPost } from '../../../posts-actions'
+import { deletePost, editPost } from '../../../posts-actions'
 import { PostRequestParam } from '../../../posts-api'
 import { PostTitle } from '../PostTitle/PostTitle'
 
@@ -22,8 +23,10 @@ type PropsType = {
 export const PostDescriptionWithBlog = ({ post }: PropsType) => {
   const dispatch = useAppDispatch()
   const [isShowEditModal, setIsShowEditModal] = useState(false)
+  const [isShowDeleteModal, setIsShowDeleteModal] = useState(false)
 
   const editPostHandler = (param: Omit<PostRequestParam, 'blogId'>) => {
+    console.log(param, post.blogId, post.id)
     dispatch(
       editPost({
         inputModel: {
@@ -33,6 +36,10 @@ export const PostDescriptionWithBlog = ({ post }: PropsType) => {
         id: post.id,
       })
     )
+  }
+
+  const deletePostHandler = () => {
+    dispatch(deletePost(post.id))
   }
 
   return (
@@ -51,7 +58,7 @@ export const PostDescriptionWithBlog = ({ post }: PropsType) => {
       </div>
       <MenuBox
         className={style['menu-box']}
-        deleteCallback={() => {}}
+        deleteCallback={() => setIsShowDeleteModal(true)}
         editCallback={() => setIsShowEditModal(true)}
       />
       <PostModal
@@ -61,6 +68,13 @@ export const PostDescriptionWithBlog = ({ post }: PropsType) => {
         onSubmit={editPostHandler}
         isEdit={true}
         post={post}
+      />
+      <ConfirmModal
+        title="Delete a post"
+        isOpen={isShowDeleteModal}
+        message="Are you sure you want to delete this post?"
+        onClose={() => setIsShowDeleteModal(false)}
+        callback={deletePostHandler}
       />
     </div>
   )
